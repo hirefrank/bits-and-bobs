@@ -1,0 +1,8 @@
+.project
+.pydevproject
+*~
+*.pyc
+.settings
+settings.py
+app.yaml
+cron.yaml
