@@ -1,0 +1,26 @@
+{
+  "name": "loops-importer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "importer": "tsx importer.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.5.2",
+  "dependencies": {
+    "csv-parser": "^3.2.0",
+    "dotenv": "^16.4.7",
+    "loops": "^4.1.0",
+    "yargs": "^17.7.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.14.0",
+    "@types/yargs": "^17.0.33",
+    "tsx": "^4.19.3",
+    "typescript": "^5.8.3"
+  }
+}
