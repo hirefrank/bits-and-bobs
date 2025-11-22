@@ -1,0 +1,47 @@
+{
+    "title": "Audit of Automation Services",
+    "description": "This is dataset includes integrations for Power Automate, Workato, and Zapier.",
+    "databases": {
+        "audit": {
+            "tables": {
+                "templates": {
+                    "facets": [
+                        "service", 
+                        {"array": "integrations"},
+                        "type"
+                    ],
+                    "columns": {
+                        "count": "not used with zapier; for workato it's copy count; for power automate it's usage count",
+                        "author": "for workato it's the user's id",
+                        "type": "only for power automate"
+                    }
+                },
+                "triggers_actions": {
+                    "facets": [
+                        "service", 
+                        "partner",
+                        "type",
+                        "is_builtin",  
+                        "is_premium"
+                    ],
+                    "columns": {
+                        "service": "not available for power automate"
+                    }
+                },
+                "integrations": {
+                    "facets": [
+                        "partner",
+                        "service",
+                        "is_builtin",  
+                        "is_premium",  
+                        {"array": "categories"},
+                    ],
+                    "columns": {
+                        "is_builtin": "not used with power automate",
+                        "is_premium": "workato doesn't have premium integrations",
+                        "categories": "only used with zapier"                    }
+                }
+            }
+        }
+    }
+}

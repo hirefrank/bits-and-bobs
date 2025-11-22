@@ -1,0 +1,30 @@
+{
+    "name": "automation-audit",
+    "version": "0.0.1",
+    "type": "module",
+    "description": "This is a dataset of Power Automate, Workato, and Zapier integrations",
+    "dependencies": {
+        "apify": "^3.1.4",
+        "crawlee": "^3.0.0",
+        "playwright": "*"
+    },
+    "devDependencies": {
+        "@apify/tsconfig": "^0.1.0",
+        "@types/node": "^18.0.0",
+        "ts-node": "^10.8.0",
+        "typescript": "^5.0.0"
+    },
+    "scripts": {
+        "start": "npm run start:dev",
+        "start:prod": "node dist/main.js",
+        "start:dev": "ts-node-esm -T src/main.ts",
+        "build": "tsc",
+        "assemble:services": "source .venv/bin/activate && csvs-to-sqlite data/integrations.csv data/audit.db -f name -f description",
+        "assemble:templates": "source .venv/bin/activate && csvs-to-sqlite data/templates.csv data/audit.db -f title -f description",
+        "assemble:connectors": "source .venv/bin/activate && csvs-to-sqlite data/triggers_actions.csv data/audit.db -f name -f description -f title",
+        "publish": "source .venv/bin/activate && datasette publish vercel data/audit.db --project automation-audit --metadata metadata.json --template-dir=templates --setting facet_time_limit_ms 1000",
+        "test": "echo \"Error: oops, the actor has no tests yet, sad!\" && exit 1"
+    },
+    "author": "It's not you it's me",
+    "license": "ISC"
+}

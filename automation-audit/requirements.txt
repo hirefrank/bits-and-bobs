@@ -1,0 +1,4 @@
+datasette
+csvs-to-sqlite
+datasette-publish-vercel
+pandas~=1.0
